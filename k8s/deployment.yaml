@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: ee-exercise
+spec:
+  selector:
+    matchLabels:
+      app: ee-exercise
+  replicas: 3
+  template:
+    metadata:
+      labels:
+        app: ee-exercise
+    spec:
+      containers:
+      - name: ee-exercise
+        image: yorgdockers/ee-exercise:v2
+        ports:
+        - containerPort: 5000
