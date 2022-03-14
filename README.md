@@ -25,18 +25,20 @@ $ docker image tag ee-exercise:v2 yorgdockers/ee-exercise:v2
 ```
 
 #### Test image locally to verify that application is responding
-1. Choose random port from 1024-49151  {local port} and see if its available
+1. Choose random port from 1024-49151 {I choose 5000} and see if its available
 
 ```bash
 $ sudo nc localhost 5000 < /dev/null; echo $?
 ```
-  If last command return 1, port is free and can be use for test purposes
+  If last command return 1, port is free and can be use for test purposes, if not choose different port
 
 2. Forward local port to application port
 
 ```bash
 $ docker run -dp ee-exercise:v1 5000:5000
 ```
+5000:5000 {local port:remote port}
+
 3. Check if there is network connectivity
 
 ```bash
